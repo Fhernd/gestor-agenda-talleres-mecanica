@@ -20,6 +20,13 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/saludo', function (Request $request, Response $response) {
+        $params = $request->getQueryParams();
+        $nombre = $params['nombre'] ?? 'Desconocido';
+        $response->getBody()->write("Hola, $nombre");
+        return $response;
+    });
+
     $app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);

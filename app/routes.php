@@ -28,7 +28,9 @@ return function (App $app) {
     });
 
     $app->get('/random-users', function (Request $request, Response $response) {
-        $data = file_get_contents('https://randomuser.me/api?results=5');
+        $params = $request->getQueryParams();
+        $quantity = $params['quantity'] ?? 5;
+        $data = file_get_contents('https://randomuser.me/api?results=' . $quantity);
         $users = json_decode($data, true);
 
         $filteredUsers = array_map(function ($user) {

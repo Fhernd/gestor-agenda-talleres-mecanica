@@ -50,4 +50,9 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+
+    $app->group('/clientes', function (Group $group) {
+        $group->get('', \App\Application\Actions\Cliente\ListClientesAction::class);
+        $group->get('/{id}', \App\Application\Actions\Cliente\ViewClienteAction::class);
+    });
 };

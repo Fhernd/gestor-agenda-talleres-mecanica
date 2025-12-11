@@ -8,5 +8,5 @@ use App\Domain\DomainException\DomainRecordNotFoundException;
 
 class ClienteNotFoundException extends DomainRecordNotFoundException
 {
-    public $message = 'The requested client was not found.';
+    public $message = 'El cliente no se encontró.';
 }
